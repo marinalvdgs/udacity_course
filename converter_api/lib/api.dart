@@ -38,7 +38,6 @@ class Api {
     }
   }
 
-
   Future<List> getUnits(String category) async{
     final uri = Uri.https(_url, '/$category');
     final jsonResponse = await _getJson(uri);
@@ -50,9 +49,9 @@ class Api {
   }
 
   Future<double> convert(
-      String category, String amount, String fromUnit, String toUnit) async {
+      String category, String amount, String from, String to) async {
     final uri = Uri.https(_url, '/$category/convert',
-        {'amount': amount, 'from': fromUnit, 'to': toUnit});
+        {'amount': amount, 'from': from, 'to': to});
     final jsonResponse = await _getJson(uri);
     if (jsonResponse == null || jsonResponse['status'] == null) {
       print('Error retrieving conversion.');
