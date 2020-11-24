@@ -100,10 +100,12 @@ class _CategoryRouteState extends State<CategoryRoute> {
           color: _baseColors[index],
           units: data[key].map<Unit>((d) => Unit.fromJson(d)).toList(),
           iconLocation: Icons.cake);
-      if(index==0){
-        _defaultCategory=category;
-      }
-      _categories.add(category);
+      setState(() {
+        if(index==0){
+          _defaultCategory=category;
+        }
+        _categories.add(category);
+      });
       index++;
     });
   }
