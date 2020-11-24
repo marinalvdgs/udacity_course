@@ -84,6 +84,7 @@ class _ConverterRouteState extends State<ConverterRoute> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         TextFormField(
+          style: Theme.of(context).textTheme.headline5,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
               border: OutlineInputBorder(),
@@ -98,6 +99,7 @@ class _ConverterRouteState extends State<ConverterRoute> {
           child: DropdownButtonFormField(
             value: inputUnit,
             items: _getItems(),
+            style: Theme.of(context).textTheme.headline6,
             onChanged: (dynamic value) {
               setState(() {
                 inputUnit = value;
@@ -124,13 +126,17 @@ class _ConverterRouteState extends State<ConverterRoute> {
         InputDecorator(
           decoration:
               InputDecoration(border: OutlineInputBorder(), hintText: 'Output'),
-          child: Text(outputValue),
+          child: Text(
+            outputValue,
+            style: Theme.of(context).textTheme.headline5,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: DropdownButtonFormField(
             value: outputUnit,
             items: _getItems(),
+            style: Theme.of(context).textTheme.headline6,
             onChanged: (dynamic value) {
               setState(() {
                 outputUnit = value;
