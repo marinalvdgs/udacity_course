@@ -12,7 +12,6 @@ import 'unit.dart';
 import 'unit_converter.dart';
 import 'unit_converter.dart';
 
-final _backgroundColor = Colors.green[100];
 
 /// Category Route (screen).
 ///
@@ -95,7 +94,7 @@ class _CategoryRouteState extends State<CategoryRoute> {
   /// Function to call when a [Category] is tapped.
   void _onCategoryTap(Category category) {
     setState(() {
-      currentCategory=category;
+      currentCategory = category;
       debugPrint(currentCategory.toString());
     });
   }
@@ -129,7 +128,9 @@ class _CategoryRouteState extends State<CategoryRoute> {
   @override
   Widget build(BuildContext context) {
     final listView = Container(
-      color: _backgroundColor,
+      color: currentCategory == null
+          ? defaultCategory.color['highlight']
+          : currentCategory.color['highlight'],
       padding: EdgeInsets.symmetric(horizontal: 8.0),
       child: _buildCategoryWidgets(),
     );
