@@ -93,9 +93,6 @@ class _CategoryRouteState extends State<CategoryRoute> {
     final json = DefaultAssetBundle.of(context)
         .loadString('assets/data/regular_units.json');
     final Map<String, dynamic> data = JsonDecoder().convert(await json);
-    if (data is! Map) {
-      throw ('Data retrieved from API is not a Map');
-    }
     int index = 0;
     data.forEach((key, value) {
       Category category = Category(
