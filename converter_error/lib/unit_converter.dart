@@ -211,32 +211,36 @@ class _UnitConverterState extends State<UnitConverter> {
   Widget build(BuildContext context) {
     if (widget.category.units == null ||
         (widget.category.name == apiCategory['name'] && isShowError)) {
-      return Container(
-        margin: _padding,
-        padding: _padding,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16.0),
-          color: widget.category.color['error'],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              Icons.error_outline,
-              size: 150.0,
-              color: Colors.white,
+      return Column(
+        children: [
+          Container(
+            margin: _padding,
+            padding: _padding,
+            height: MediaQuery.of(context).size.height/2.5,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16.0),
+              color: widget.category.color['error'],
             ),
-            Text(
-              "Oh no! We can't connect right now!",
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline5.copyWith(
-                color: Colors.white,
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.error_outline,
+                  size: 150.0,
+                  color: Colors.white,
+                ),
+                Text(
+                  "Oh no! We can't connect right now!",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline5.copyWith(
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       );
     }
 
